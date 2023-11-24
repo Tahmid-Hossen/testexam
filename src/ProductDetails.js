@@ -1,7 +1,6 @@
-// ProductDetails.js
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import './product.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,10 +20,6 @@ const ProductDetails = () => {
   const changeImage = (imageSrc) => {
     setActiveImage(imageSrc);
   };
-
-//   const toggleNavigation = () => {
-//     // Your logic for toggling navigation goes here
-//   };
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -55,42 +50,32 @@ const ProductDetails = () => {
   }
 
   return (
-    // <div>
-    //     <img
-    //         src={product.thumbnail}
-    //         alt={product.title}
-    //         style={{ maxWidth: '200px', maxHeight: '100px', width: 'auto', height: 'auto' }}
-    //     />
-    //     <h2>{product.title}</h2>
-    //     <p>{product.description}</p>
-    //     <p>Price: ${product.price}</p>
-    // </div>
     <div className="container">
-    <div className="grid product">
-      <div className="column-xs-12 column-md-7">
-        <div className="product-gallery">
-          <div className="product-image">
-            <img className="active" src={product.thumbnail} alt="Product" />
+      <div className="grid product">
+        <div className="column-xs-12 column-md-7">
+          <div className="product-gallery">
+            <div className="product-image">
+              <img className="active" src={product.thumbnail} alt="Product" />
+            </div>
+            <ul className="image-list">
+              {productImages.map((image, index) => (
+                <li key={index} className="image-item">
+                  <img src={product.thumbnail} alt={`Product ${index + 1}`} onClick={() => changeImage(image)} />
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="image-list">
-            {productImages.map((image, index) => (
-              <li key={index} className="image-item">
-                <img src={product.thumbnail} alt={`Product ${index + 1}`} onClick={() => changeImage(image)} />
-              </li>
-            ))}
-          </ul>
         </div>
-      </div>
-      <div className="column-xs-12 column-md-5">
-        <h1>{product.title}</h1>
-        <h2>Price: ${product.price}</h2>
-        <div className="description">
-          <p>{product.description}</p>
+        <div className="column-xs-12 column-md-5">
+          <h1>{product.title}</h1>
+          <h2>Price: ${product.price}</h2>
+          <div className="description">
+            <p>{product.description}</p>
+          </div>
+          <button className="add-to-cart">Add To Cart</button>
         </div>
-        <button className="add-to-cart">Add To Cart</button>
       </div>
     </div>
-  </div>
   );
 };
 

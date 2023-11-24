@@ -1,7 +1,7 @@
 .uniqueCategoryList{
   overflow: hidden;
   background-color: green;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .uniqueCategoryList ul{
@@ -25,8 +25,29 @@
     display: block;
 }
 
+.uniqueCategoryList ul li a{
+    color: white;
+}
 
-@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+
+.pagination{
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+.pagination ul{
+    display: flex;
+}
+.pagination ul li button{
+    background-color: green;
+    color: white;
+}
+.priceFilter{
+    margin-bottom: 50px;
+}
 .container {
   margin: auto;
   padding: 0 1rem;
