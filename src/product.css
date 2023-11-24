@@ -10,11 +10,17 @@
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: unset;
 }
 
 .uniqueCategoryList ul li{
     list-style: none;
     color: white;
-    padding-top: 1rem;
+    padding: 1rem 0rem;
     cursor: pointer;
+}
+
+.uniqueCategoryList ul li:hover {
+    background-color: red;
+    display: block;
 }
