@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';  // Import Link
 import './product.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -68,7 +69,9 @@ const ProductList = () => {
       <div className="productListArea">
         <Row>
           {filteredProducts.map((product) => (
-              <Col sm={4} key={product.id}>
+            <Col sm={4} key={product.id}>
+              {/* Wrap the product content with Link */}
+              <Link to={`/product/${product.id}`}>
                 <div className="singleProduct">
                   <img
                     src={product.thumbnail}
@@ -78,8 +81,9 @@ const ProductList = () => {
                   <h2>{product.title}</h2>
                   <p>{product.description}</p>
                   <p>Price: ${product.price}</p>
-                  </div>
-              </Col>
+                </div>
+              </Link>
+            </Col>
           ))}
         </Row>
       </div>
