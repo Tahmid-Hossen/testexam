@@ -14,13 +14,11 @@ const ProductList = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get('https://dummyjson.com/products');
-      console.log('API Response:', response.data); // Log the entire data
+      console.log('API Response:', response.data);
       const responseData = response.data || {};
       const productsArray = responseData.products || [];
 
       setProducts(productsArray);
-
-      // Set unique categories
       const uniqueCategories = new Set(productsArray.map(product => product.category));
       setUniqueCategories(uniqueCategories);
     } catch (error) {
@@ -67,19 +65,21 @@ const ProductList = () => {
         </ul>
       </div>
 
-      <div className="productlistArea">
+      <div className="productListArea">
         <Row>
           {filteredProducts.map((product) => (
-            <Col sm={4} key={product.id}>
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                style={{ maxWidth: '200px', maxHeight: '100px', width: 'auto', height: 'auto' }}
-              />
-              <h2>{product.title}</h2>
-              <p>{product.description}</p>
-              <p>Price: ${product.price}</p>
-            </Col>
+              <Col sm={4} key={product.id}>
+                <div className="singleProduct">
+                  <img
+                    src={product.thumbnail}
+                    alt={product.title}
+                    style={{ maxWidth: '200px', maxHeight: '100px', width: 'auto', height: 'auto' }}
+                  />
+                  <h2>{product.title}</h2>
+                  <p>{product.description}</p>
+                  <p>Price: ${product.price}</p>
+                  </div>
+              </Col>
           ))}
         </Row>
       </div>
