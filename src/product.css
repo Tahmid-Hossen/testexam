@@ -1,0 +1,20 @@
+.uniqueCategoryList{
+  overflow: hidden;
+  background-color: green;
+  margin-bottom: 100px;
+}
+
+.uniqueCategoryList ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.uniqueCategoryList ul li{
+    list-style: none;
+    color: white;
+    padding-top: 1rem;
+    cursor: pointer;
+}
