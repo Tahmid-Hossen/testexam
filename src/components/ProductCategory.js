@@ -13,7 +13,7 @@ const ProductList = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(8);
+  const [productsPerPage] = useState(12);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const fetchData = async () => {
@@ -32,6 +32,16 @@ const ProductList = () => {
       setLoading(false);
     }
   };
+
+  const truncateDescription = (description, maxLength) => {
+    if (description.length <= maxLength) {
+      return description;
+    } else {
+      return `${description.slice(0, maxLength)}...`;
+    }
+  };
+  
+  
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -132,8 +142,8 @@ const ProductList = () => {
                       style={{ maxWidth: '200px', maxHeight: '100px', width: 'auto', height: 'auto' }}
                     />
                     <h2>{product.title}</h2>
-                    <p>{product.description}</p>
-                    <p>Price: ${product.price}</p>
+                    <p>{truncateDescription(product.description, 50)}</p>
+                    <span>Price: ${product.price}</span>
                   </div>
                 </Link>
               </Col>
