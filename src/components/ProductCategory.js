@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import FooterArea from './FooterArea';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -149,6 +150,7 @@ const ProductList = () => {
           ))}
         </ul>
       </div>
+      <FooterArea></FooterArea>
     </Container>
   );
 };

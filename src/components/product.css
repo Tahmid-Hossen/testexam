@@ -1,7 +1,7 @@
 .uniqueCategoryList{
   overflow: hidden;
   background-color: green;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .uniqueCategoryList ul{
@@ -46,8 +46,19 @@
     background-color: green;
     color: white;
 }
+
+.footerArea{
+  background-color: green;
+  color: white;
+  margin-top: 20px;
+}
+.footerArea h2{
+  color: #fff;
+  text-align: center;
+}
+
 .priceFilter{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .container {
   margin: auto;
